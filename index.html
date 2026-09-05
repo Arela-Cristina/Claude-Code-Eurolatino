@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eurolatino CAF Patronato — Assistenza fiscale e immigrazione a Milano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #163a6b;
+    --navy-deep: #0e2748;
+    --gold: #f0d675;
+    --gold-soft: #f7e9b8;
+    --red: #a3282e;
+    --cream: #fbf8f1;
+    --ink: #1c2430;
+    --ink-soft: #4a5468;
+    --line: rgba(22,58,107,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Source Sans 3', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.5;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    margin:0;
+    color:var(--navy-deep);
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;max-width:1120px;margin:0 auto;
+  }
+  .brand{display:flex;flex-direction:column;line-height:1.1;}
+  .brand-name{font-family:'Fraunces', serif;font-weight:700;font-size:22px;color:var(--navy-deep);}
+  .brand-tag{font-size:12px;letter-spacing:.03em;color:var(--ink-soft);margin-top:2px;}
+  nav.links{display:flex;gap:28px;font-size:15px;font-weight:500;}
+  nav.links a{text-decoration:none;color:var(--ink-soft);border-bottom:2px solid transparent;padding-bottom:3px;transition:color .15s, border-color .15s;}
+  nav.links a:hover{color:var(--navy-deep);border-color:var(--gold);}
+  .nav-cta{
+    background:var(--red);color:#fff;padding:10px 20px;border-radius:3px;
+    text-decoration:none;font-weight:600;font-size:14px;white-space:nowrap;
+  }
+  .nav-cta:hover{background:#8a2128;}
+  .burger{display:none;}
+
+  /* Hero */
+  .hero{position:relative;overflow:hidden;background:var(--navy-deep);}
+  .hero img{width:100%;height:auto;display:block;opacity:0.9;}
+  .hero-copy{
+    max-width:1120px;margin:0 auto;padding:56px 28px 44px;
+    display:flex;flex-direction:column;gap:18px;align-items:flex-start;
+  }
+  .eyebrow{
+    color:var(--gold);font-weight:600;font-size:14px;letter-spacing:.02em;
+  }
+  .hero-copy h1{
+    color:#fff;font-size:clamp(30px,4.2vw,48px);font-weight:600;max-width:14ch;
+  }
+  .hero-copy p{
+    color:#dbe4f2;font-size:18px;max-width:52ch;margin:0;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;}
+  .btn-primary{
+    background:var(--gold);color:var(--navy-deep);padding:13px 26px;border-radius:3px;
+    text-decoration:none;font-weight:700;font-size:15px;
+  }
+  .btn-primary:hover{background:var(--gold-soft);}
+  .btn-ghost{
+    border:1.5px solid rgba(255,255,255,.5);color:#fff;padding:12px 24px;border-radius:3px;
+    text-decoration:none;font-weight:600;font-size:15px;
+  }
+  .btn-ghost:hover{border-color:#fff;}
+
+  /* Section headers */
+  .section{padding:72px 0;}
+  .section-head{max-width:640px;margin-bottom:40px;}
+  .section-head .eyebrow{color:var(--red);}
+  .section-head h2{font-size:clamp(26px,3vw,34px);font-weight:600;margin-top:8px;}
+  .section-head p{color:var(--ink-soft);margin-top:12px;font-size:16.5px;}
+
+  /* Services */
+  .services{background:#fff;}
+  .service-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line);}
+  .service-group{
+    padding:30px 32px;border-bottom:1px solid var(--line);
+  }
+  .service-group:nth-child(odd){border-right:1px solid var(--line);}
+  .service-group h3{
+    font-size:19px;font-weight:600;color:var(--navy);margin-bottom:14px;
+    display:flex;align-items:baseline;gap:10px;
+  }
+  .service-group h3 .mark{width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block;flex-shrink:0;}
+  .service-group ul{list-style:none;margin:0;padding:0;font-size:15.5px;color:var(--ink-soft);}
+  .service-group li{padding:7px 0;border-bottom:1px dashed var(--line);}
+  .service-group li:last-child{border-bottom:none;}
+
+  /* How it works */
+  .how{background:var(--cream);}
+  .how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
+  .how-step{padding-top:18px;border-top:2px solid var(--navy);}
+  .how-step .step-n{font-family:'Fraunces',serif;font-size:15px;color:var(--red);font-weight:600;}
+  .how-step h3{font-size:19px;margin:8px 0 8px;font-weight:600;}
+  .how-step p{margin:0;color:var(--ink-soft);font-size:15px;}
+
+  /* Booking */
+  .booking{background:var(--navy-deep);color:#fff;}
+  .booking .section-head p{color:#c6d3e6;}
+  .booking .section-head .eyebrow{color:var(--gold);}
+  .booking .section-head h2{color:#fff;}
+  .booking-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start;}
+  .calendar-embed{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:6px;
+    min-height:420px;
+    display:flex;align-items:center;justify-content:center;
+    padding:32px;text-align:center;
+  }
+  .calendar-embed p{color:#b7c4da;font-size:15px;line-height:1.7;max-width:38ch;}
+  .calendar-embed code{
+    background:rgba(255,255,255,.08);padding:2px 6px;border-radius:3px;font-size:13px;
+  }
+  .contact-card{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.18);
+    border-radius:6px;padding:28px;
+  }
+  .contact-card h3{color:#fff;font-size:17px;margin-bottom:16px;font-weight:600;}
+  .contact-row{display:flex;gap:12px;margin-bottom:14px;font-size:15px;color:#dbe4f2;}
+  .contact-row .lbl{color:var(--gold);min-width:80px;font-weight:600;font-size:13px;text-transform:none;padding-top:1px;}
+  .contact-row a{color:#dbe4f2;text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);}
+  .contact-row a:hover{text-decoration-color:#fff;}
+
+  /* Footer */
+  footer{background:var(--navy-deep);border-top:1px solid rgba(255,255,255,.12);padding:26px 0;}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .footer-row p{margin:0;color:#8fa0bd;font-size:13.5px;}
+
+  @media (max-width:780px){
+    nav.links{display:none;}
+    .service-groups{grid-template-columns:1fr;}
+    .service-group:nth-child(odd){border-right:none;}
+    .how-steps{grid-template-columns:1fr;gap:28px;}
+    .booking-grid{grid-template-columns:1fr;}
+    .hero-copy{padding:40px 20px 32px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <span class="brand-name">Eurolatino</span>
+      <span class="brand-tag">CAF · Patronato · Viaggi</span>
+    </div>
+    <nav class="links">
+      <a href="#servizi">Servizi</a>
+      <a href="#come-funziona">Come funziona</a>
+      <a href="#prenota">Contatti</a>
+    </nav>
+    <a class="nav-cta" href="#prenota">Prenota un appuntamento</a>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="eurolatino-banner.png" alt="Famiglia sorridente, banner Eurolatino CAF Patronato Viaggi">
+  <div class="hero-copy">
+    <span class="eyebrow">CAF · PATRONATO · VIAGGI — MILANO</span>
+    <h1>Pratiche fiscali e di immigrazione, seguite da chi parla la tua lingua.</h1>
+    <p>Da permessi di soggiorno a ISEE e 730, ti accompagniamo passo dopo passo in ogni pratica con l'Italia — in italiano e in español.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#prenota">Prenota un appuntamento</a>
+      <a class="btn-ghost" href="#servizi">Vedi i servizi</a>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="servizi">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">I NOSTRI SERVIZI</span>
+      <h2>Tutto quello che serve per vivere e lavorare in regola in Italia</h2>
+      <p>Un unico centro per le pratiche di soggiorno, quelle fiscali e i documenti di uso quotidiano — senza dover girare tra più uffici.</p>
+    </div>
+  </div>
+  <div class="service-groups wrap" style="padding-left:0;padding-right:0;">
+    <div class="service-group">
+      <h3><span class="mark"></span>Soggiorno e immigrazione</h3>
+      <ul>
+        <li>Permesso di soggiorno — richiesta e rinnovo</li>
+        <li>Conversione del permesso</li>
+        <li>Coesione familiare (ricongiungimento)</li>
+        <li>Test di lingua italiana</li>
+      </ul>
+    </div>
+    <div class="service-group">
+      <h3><span class="mark"></span>Fiscale e welfare</h3>
+      <ul>
+        <li>ISEE</li>
+        <li>Modello 730</li>
+        <li>SPID — attivazione e assistenza</li>
+        <li>Sostegno al reddito e bonus</li>
+        <li>NASPI e dimissioni</li>
+        <li>Pensione e invalidità civile</li>
+      </ul>
+    </div>
+    <div class="service-group">
+      <h3><span class="mark"></span>Documenti</h3>
+      <ul>
+        <li>Codice fiscale</li>
+        <li>Residenza</li>
+        <li>Carta d'identità</li>
+        <li>Tessera sanitaria</li>
+      </ul>
+    </div>
+    <div class="service-group">
+      <h3><span class="mark"></span>Viaggi</h3>
+      <ul>
+        <li>Biglietti aerei</li>
+        <li>Assistenza per viaggi verso l'America Latina</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section how" id="come-funziona">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">COME FUNZIONA</span>
+      <h2>Tre passaggi, senza sorprese</h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="step-n">Primo</span>
+        <h3>Prenoti online</h3>
+        <p>Scegli il giorno e l'orario più comodi per te direttamente dal calendario qui sotto.</p>
+      </div>
+      <div class="how-step">
+        <span class="step-n">Secondo</span>
+        <h3>Confermiamo l'appuntamento</h3>
+        <p>Ricevi una conferma e, se serve, l'elenco dei documenti da portare per la tua pratica.</p>
+      </div>
+      <div class="how-step">
+        <span class="step-n">Terzo</span>
+        <h3>Ti seguiamo di persona</h3>
+        <p>In sede, in italiano o español, seguiamo la pratica fino alla sua conclusione.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section booking" id="prenota">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">PRENOTA</span>
+      <h2>Fissa il tuo appuntamento</h2>
+      <p>Scegli l'orario che preferisci, oppure contattaci direttamente per telefono.</p>
+    </div>
+    <div class="booking-grid">
+      <div class="calendar-embed" id="calendar-slot">
+        <!-- Google Calendar Appointment Scheduling begin -->
+        <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+        <script>
+        (function() {
+          var target = document.currentScript;
+          window.addEventListener('load', function() {
+            calendar.schedulingButton.load({
+              url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0o4HLM92AkKM5wLWotiZKegSloOcxIUEd1qTep_4R0Uh3ElZerSr2x4cf4NBw9iM_CEfogcXha?gv=true',
+              color: '#039BE5',
+              label: 'Prenota un appuntamento',
+              target,
+            });
+          });
+        })();
+        </script>
+        <!-- end Google Calendar Appointment Scheduling -->
+      </div>
+      <div class="contact-card">
+        <h3>Contatti diretti</h3>
+        <div class="contact-row"><span class="lbl">Telefono</span><span><a href="tel:+393207467333">320 746 7333</a><br><a href="tel:+393207474428">320 747 4428</a><br><a href="tel:+390239546042">02 3954 6042</a></span></div>
+        <div class="contact-row"><span class="lbl">Indirizzo</span><span>Via Placido Riccardi 23<br>Milano (MI)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <p>© Eurolatino CAF Patronato Viaggi — Via Placido Riccardi 23, Milano</p>
+    <p>320 746 7333 · 320 747 4428 · 02 3954 6042</p>
+  </div>
+</footer>
+
+</body>
+</html>
